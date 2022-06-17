@@ -3,6 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PostsModule } from './components/posts/posts.module';
+import { PrismaService } from '@src/prisma.service';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { PostsModule } from './components/posts/posts.module';
     }),
     PostsModule,
   ],
-  providers: [],
+  providers: [PrismaService],
 })
 export class AppModule {}

@@ -1,17 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '@src/prisma.service';
 
 @Injectable()
 export class PostsService {
+  constructor(private prisma: PrismaService) {}
+
   findAll() {
-    return [
-      {
-        id: '1',
-        title: 'NestJS is so good.',
-      },
-      {
-        id: '2',
-        title: 'GraphQL is so good.',
-      },
-    ];
+    return this.prisma.post.findMany();
   }
 }
