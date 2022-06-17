@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: mysql/mysql-server:8.0.27
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: backend
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - 'mysql:/var/lib/mysql'
+
+volumes:
+  mysql:
+    driver: local
